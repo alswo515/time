@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>switch 조건문</title>
+    <style>
+        p {
+            text-align: center;
+            font-size: 30px;
+            margin: 100px;
+            font-weight: bold;
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <p>
+        <span id="year"></span>
+        <span id="month"></span>
+        <span id="date"></span>
+        <span id="weekday"></span>
+        <span id="hour"></span>
+        <span id="minute"></span>
+        <span id="second"></span>
+        <!-- 136p참고 -->
+    </p>
+
+    <script>
+        var today = new Date()
+        var year = today.getFullYear()
+        var month = today.getMonth()
+        var date = today.getDate()
+        var weekday = today.getDay()
+        var hour = today.getHours()
+        var minute = today.getMinutes()
+        var second = today.getSeconds()
+
+        document.getElementById('year').textContent = year + "년";
+        document.getElementById('month').textContent = month++ + "월";
+        //먼스메소드는 기본값이 한달 아래로 내겨가서 ++증감연산자를 붙여줘야한다
+        document.getElementById('date').textContent = date + "일";
+
+        switch (weekday) {
+            case 0: weekday = "일"; break;
+            // 가로안에변수값이 0에 해당될경우
+            case 1: weekday = "월"; break;
+            // break 문이 없을경우 불필요한일을 시키기 때문에 무조건 있어야한다
+            case 2: weekday = "화"; break;
+            case 3: weekday = "수"; break;
+            case 4: weekday = "목"; break;
+            case 5: weekday = "금"; break;
+            case 6: weekday = "토";
+            // 이외의 경우는 있을수 없다
+        }
+        document.getElementById('weekday').textContent = weekday + "요일";
+        document.getElementById('hour').textContent = hour + "시";
+        document.getElementById('minute').textContent = minute + "분";
+        document.getElementById('second').textContent = second + "초";
+    </script>
+</body>
+
+</html>
