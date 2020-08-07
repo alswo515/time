@@ -1,285 +1,150 @@
-<!DOCTYPE html>
-<html lang="ko">
+﻿<!DOCTYPE html>
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>setinterval함수</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@900&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-
-        html,
-        body {
-            height: 100%;
-        }
-
-        body {
-            /* background: url(https://momentumdash.com/img/plus/bg1.jpg) no-repeat center; */
-            background-size: cover;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 18px;
-        }
-
-        #clock {
-            font-size: 10rem;
-            /* rem의 기준은 기본적인 html의 폰트사이즈를 따라간다 14px 일경우 10배의 값을 같는다 */
-            text-shadow: #000 15px 12px 8px;
-            color: greenyellow;
-            position: absolute;
-            top: 50%;
-            left: 0%;
-            transform: translateY(-50%);
-            width: 100%;
-            text-align: center;
-        }
-
-        body.morning {
-            /* background-image: url(https://momentumdash.com/img/plus/bg1.jpg); */
-        }
-
-        body.afternoon {
-            /* background-image: url(https://momentumdash.com/img/plus/bg0.jpg); */
-        }
-
-        body.evening {
-            /* background-image: url(https://momentumdash.com/img/plus/bg2.jpg); */
-        }
-    </style>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+	<title> 전자시계 </title>
+	<link rel="stylesheet" href="css/style.css" />
 
 </head>
 
-<body class="">
+<body>
+
+	<!-- 전체 프레임 -->
+	<div id="wrap" class="">
+
+		<!-- 전체 화면 구름 -->
+		<img src="img/cloud1.png" />
+		<img src="img/cloud2.png" />
+
+		<!-- 로고 -->
+		<h1></h1>
+
+		<!-- 주 메뉴 -->
+		<ul id="gnb">
+			<li><a href="#">About</a></li>
+			<li><a href="#">Company</a></li>
+			<li><a href="#">History</a></li>
+			<li><a href="#">Community</a></li>
+			<li><a href="#">Contact us</a></li>
+		</ul>
 
 
-    <div id="clock">
-        <span>
-            00
-        </span> :
-        <span>
-            00
-        </span> :
-        <span>
-            00
-        </span>
-    </div>
+		<!-- 텍스트 박스 -->
+		<article>
+			<p><strong>Lorem</strong> Ipsum</p>
+			<em>Lorem Ipsum is simply dummy text of the printing Materials</em>
+		</article>
 
-    <script>
-        // var today, hour, minutes, second;
-        // var elBody = document.body
-        // var elSpan = document.getElementById("clock").children;
-        // //저녁변수
+		<!-- 모바일 프레임 -->
+		<figure>
+			<p id="clock">
+				<!-- 시계 -->
+				<span>00</span> : <span>00</span> : <span>00</span>
+				<!-- 모바일 화면 구름 -->
+				<img class="cl1" src="img/cloud1.png" />
+				<img class="cl2" src="img/cloud2.png" />
+			</p>
+		</figure>
 
-        // setInterval(function () {
-        //     today = new Date;
-        //     hour = today.getHours();
-        //     minutes = today.getMinutes();
-        //     second = today.getSeconds();
+		<!-- 테마 변경 메뉴 -->
+		<nav>
+			<ul id="oneday">
+				<li class="morning"><a href="#">morning</a></li>
+				<li class="afternoon"><a href="#">afternoon</a></li>
+				<li class="evening"><a href="#">evening</a></li>
+				<li class="night"><a href="#">night</a></li>
+			</ul>
+		</nav>
 
-        //     if (hour > 18) {
-        //         // elBody.setAttribute("class", "evening")
-        //         elBody.className = 'evening'
-        //         // className="클래스" 클래스를 직접 선택할수있는속성
-        //     } else if (hour > 11) {
-        //         elBody.className = 'afternoon'
+	</div>
 
-        //     } else {
-        //         elBody.className = 'morning'
+	<script>
+		var elWrap = document.getElementById("wrap")
 
-        //     }
+		//시계
+		var today
+		var hour
+		var minutes
+		var seconds
+		var elSpan = document.getElementById("clock").children;
+		// var morning
+		// var afternoon
+		// var evening
+		// var night
+		var oneday = document.getElementById("oneday").children
+		setInterval(function () {
 
-        //     if (hour < 10) {
-        //         hour = '0' + hour
-        //     }
-        //     if (minutes < 10) {
-        //         minutes = '0' + minutes
-        //     }
-        //     if (second < 10) {
-        //         second = '0' + second
-        //     }
+			today = new Date
+			hour = today.getHours();
+			minutes = today.getMinutes();
+			seconds = today.getSeconds();
+			// morning = document.getElementsByClassName("morning")[0].children;
+			// afternoon = document.getElementsByClassName("afternoon")[0].children;
+			// evening = document.getElementsByClassName("evening")[0].children;
+			// night = document.getElementsByClassName("night")[0].children;
 
-        //     elSpan[0].textContent = hour
-        //     elSpan[1].textContent = minutes
-        //     elSpan[2].textContent = second
-        // }, 0.00000000000001)
-        // setInterval(함수,1000);
-        //                 ,1000은 시간을 나타낸다 1초에 한번씩 1000 인터벌함수
-        //setInterval는 매초마다 갱신할수 있는 함수 함수라는 자루에 담아서 표시한다
-        //함수 기본 표기법은 function(){}
+			if (16 <= hour && 19 >= hour) {
+				elWrap.className = "evening"
+				oneday[2].className = "on"
+				// oneday[0].removeAttribute('class')
+				// oneday[1].removeAttribute('class')
+				// oneday[3].removeAttribute('class')
 
-    </script>
-    <script>
-        const FONT_FAMILY = 'Audiowide'
-        const FONT_FAMILY_EMBED = `https://fonts.googleapis.com/css2?family=${FONT_FAMILY}&display=swap"`
+				// evening[0].style.backgroundColor = "#111"
+				// evening[0].style.opacity = "1"
+				// evening[0].style.color = "#ddd"
+			} else if (11 <= hour && 15 >= hour) {
+				elWrap.className = "afternoon"
+				oneday[1].className = "on"
+				// oneday[0].removeAttribute('class')
+				// oneday[1].removeAttribute('class')
+				// oneday[3].removeAttribute('class')
 
-        const createElement = (tagName, properties) => Object.assign(document.createElement(tagName), { ...properties })
-        const initArray = (length, f = (_, i) => i) => Array.from({ length: length }, f)
-        const fontLink = createElement('link', { rel: 'stylesheet', href: FONT_FAMILY_EMBED })
-        const loop = () => {
-            const set = new Set
-            requestAnimationFrame(function run(time) {
-                set.forEach(f => f(time))
-                requestAnimationFrame(run)
-            })
-            return set
-        }
+				// afternoon[0].style.backgroundColor = "#111"
+				// afternoon[0].style.opacity = "0.9"
+				// afternoon[0].style.color = "#ddd"
+			} else if (5 <= hour && 10 >= hour) {
+				elWrap.className = "morning"
+				oneday[0].className = "on"
+				// oneday[0].removeAttribute('class')
+				// oneday[1].removeAttribute('class')
+				// oneday[3].removeAttribute('class')
 
-        class AnalogClock {
-            themeLight = 'light'
-            themeDark = 'dark'
-            clockFrame = null
-            constructor({ size = 600, theme = 'light', fontSize = 50, padding = 0, wrapper } = {}) {
-                Object.assign(this, { size, theme, fontSize, padding, wrapper })
-            }
-            get _targetTheme() {
-                return this.theme === 'light' ? this.themeLight : this.themeDark
-            }
-            // 시계 프레임
-            get _clockFrame() {
-                return createElement('div', {
-                    className: 'clock-frame', style: `
-      position: relative;
-      width: ${this.size}px;
-      height: ${this.size}px;
-      padding: ${this.padding}px;
-      box-sizing: border-box;
-      border-radius: 50%;
-    `})
-            }
-            // 숫자 (시)
-            get _hourNumbers() {
-                return initArray(12, (_, i) => {
-                    const currentDeg = (360 / 12) * (i + 1);
-                    const radius = (this.size / 2) - this.fontSize - 10
-                    const x = radius * Math.cos(Math.PI * ((currentDeg) - 90) / 180);
-                    const y = radius * Math.sin(Math.PI * ((currentDeg) - 90) / 180);
-                    const hour = createElement('div', {
-                        className: `hour-number`, style: `
-        font-family: ${FONT_FAMILY}, cursive;
-        font-size: ${this.fontSize}px;
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%) translate(${x}px, ${y}px);
-      `})
-                    hour.innerText = i + 1
-                    return hour
-                })
-            }
-            // 시계 눈금
-            get _graduations() {
-                return initArray(60, (_, i) => {
-                    const currentDeg = (360 / 60) * i;
-                    const height = 12
-                    const radius = (this.size / 2) - (height / 2) - 5
-                    const x = radius * Math.cos(Math.PI * ((currentDeg) - 90) / 180);
-                    const y = radius * Math.sin(Math.PI * ((currentDeg) - 90) / 180);
-                    const border = i % 5 === 0 ? `width: 6px; height: ${height}px;` : `width: 1px; height: ${height}px;`
-                    const graduations = createElement('div', {
-                        className: `graduations`, style: `
-        ${border}
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%) translate(${x}px, ${y}px) rotate(${currentDeg}deg);
-      `})
-                    return graduations
-                })
-            }
-            // 시계 그리기
-            render(currentTheme = this._targetTheme) {
-                this.clockFrame = this._clockFrame
-                this._hourNumbers.forEach(el => this.clockFrame.appendChild(el))
-                this._graduations.forEach(el => this.clockFrame.appendChild(el))
+				// morning[0].style.backgroundColor = "#111"
+				// morning[0].style.opacity = "0.9"
+				// morning[0].style.color = "#ddd"
+			} else {
+				elWrap.className = "night"
+				oneday[3].className = "on"
+				// oneday[0].removeAttribute('class')
+				// oneday[1].removeAttribute('class')
+				// oneday[3].removeAttribute('class')
 
-                this.wrapper.appendChild(fontLink)
-                this.wrapper.appendChild(this.clockFrame)
-                this.wrapper.classList.add(currentTheme)
-            }
-            // 시계 작동
-            start() {
-                this.render()
-                const timeBox = createElement('div', {
-                    className: 'current-time', style: `
-      text-align: center;
-      font-family: ${FONT_FAMILY}, cursive;
-      font-size: ${this.fontSize}px;
-      width: 100%;
-    `})
-                const secondsHand = createElement('div', {
-                    className: 'seconds', style: `
-      width: 1px;
-      height: ${(this.size / 2) - this.fontSize}px;
-      position: absolute;
-      left: 50%;
-      bottom: 50%;
-      transform-origin: bottom;
-      transform: translate(-50%, 0) rotate(0);
-      background: #FF0000;
-    `})
-                const minutesHand = createElement('div', {
-                    className: 'minutes', style: `
-      width: 5px;
-      height: ${(this.size / 2) - this.fontSize - 30}px;
-      position: absolute;
-      left: 50%;
-      bottom: 50%;
-      transform-origin: bottom;
-      transform: translate(-50%, 0) rotate(0);
-      z-index: 1;
-    `})
-                const hoursHand = createElement('div', {
-                    className: 'hours', style: `
-      width: 5px;
-      height: ${(this.size / 2) - this.fontSize - 80}px;
-      position: absolute;
-      left: 50%;
-      bottom: 50%;
-      transform-origin: bottom;
-      transform: translate(-50%, 0) rotate(0);
-      z-index: 1;
-    `})
-                this.clockFrame.appendChild(secondsHand)
-                this.clockFrame.appendChild(minutesHand)
-                this.clockFrame.appendChild(hoursHand)
-                this.clockFrame.parentNode.appendChild(timeBox)
+				// night[0].style.backgroundColor = "#111"
+				// night[0].style.opacity = "0.9"
+				// night[0].style.color = "#ddd"
+			}
 
-                const set = loop();
-                set.add(() => {
-                    const now = new Date()
-                    const h = now.getHours()
-                    const m = now.getMinutes()
-                    const s = now.getSeconds()
-                    const ms = now.getMilliseconds()
+			// =================================연산자 다시보기===========================
+			if (10 > hour) {
+				hour = "0" + hour
+			} if (10 > minutes) {
+				minutes = "0" + minutes
+			} if (10 > seconds) {
+				seconds = "0" + seconds
+			}
 
-                    const currentTime = `${(h < 10) ? '0' + h : h}:${(m < 10) ? '0' + m : m}:${(s < 10) ? '0' + s : s}`
-                    const hDeg = h * 30 // (h%12) * (360/12)
-                    const mDeg = m * 6 // (m%60) * (360/60)
-                    const sDeg = s * 6 // (s%60) * (360/60)
-                    const msDeg = ms * (6 / 1000)
+			elSpan[0].textContent = hour
+			elSpan[1].textContent = minutes
+			elSpan[2].textContent = seconds
+		}, 1000)
 
-                    timeBox.innerText = currentTime
-                    secondsHand.style.transform = `translate(-50%, 0) rotate(${msDeg + sDeg}deg)`
-                    minutesHand.style.transform = `translate(-50%, 0) rotate(${mDeg + (sDeg / 360) * (360 / 60)}deg)`
-                    hoursHand.style.transform = `translate(-50%, 0) rotate(${hDeg + (mDeg / 360) * (360 / 12)}deg)`
-                })
-            }
-        }
 
-        const analogClock = new AnalogClock({
-            size: 500,
-            theme: 'dark',
-            fontSize: 36,
-            wrapper: document.body
-        })
-        analogClock.start()
 
-    </script>
+
+	</script>
 
 </body>
 
