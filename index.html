@@ -70,43 +70,43 @@
     </div>
 
     <script>
-        var today, hour, minutes, second;
-        var elBody = document.body
-        var elSpan = document.getElementById("clock").children;
-        //저녁변수
+        // var today, hour, minutes, second;
+        // var elBody = document.body
+        // var elSpan = document.getElementById("clock").children;
+        // //저녁변수
 
-        setInterval(function () {
-            today = new Date;
-            hour = today.getHours();
-            minutes = today.getMinutes();
-            second = today.getSeconds();
+        // setInterval(function () {
+        //     today = new Date;
+        //     hour = today.getHours();
+        //     minutes = today.getMinutes();
+        //     second = today.getSeconds();
 
-            if (hour > 18) {
-                // elBody.setAttribute("class", "evening")
-                elBody.className = 'evening'
-                // className="클래스" 클래스를 직접 선택할수있는속성
-            } else if (hour > 11) {
-                elBody.className = 'afternoon'
+        //     if (hour > 18) {
+        //         // elBody.setAttribute("class", "evening")
+        //         elBody.className = 'evening'
+        //         // className="클래스" 클래스를 직접 선택할수있는속성
+        //     } else if (hour > 11) {
+        //         elBody.className = 'afternoon'
 
-            } else {
-                elBody.className = 'morning'
+        //     } else {
+        //         elBody.className = 'morning'
 
-            }
+        //     }
 
-            if (hour < 10) {
-                hour = '0' + hour
-            }
-            if (minutes < 10) {
-                minutes = '0' + minutes
-            }
-            if (second < 10) {
-                second = '0' + second
-            }
+        //     if (hour < 10) {
+        //         hour = '0' + hour
+        //     }
+        //     if (minutes < 10) {
+        //         minutes = '0' + minutes
+        //     }
+        //     if (second < 10) {
+        //         second = '0' + second
+        //     }
 
-            elSpan[0].textContent = hour
-            elSpan[1].textContent = minutes
-            elSpan[2].textContent = second
-        }, 0.00000000000001)
+        //     elSpan[0].textContent = hour
+        //     elSpan[1].textContent = minutes
+        //     elSpan[2].textContent = second
+        // }, 0.00000000000001)
         // setInterval(함수,1000);
         //                 ,1000은 시간을 나타낸다 1초에 한번씩 1000 인터벌함수
         //setInterval는 매초마다 갱신할수 있는 함수 함수라는 자루에 담아서 표시한다
