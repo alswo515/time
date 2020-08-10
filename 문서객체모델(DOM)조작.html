@@ -10,25 +10,37 @@
 <body>
 
     <ui id="menu">
-        <li class="font border">정신나갈거같에</li>
-        <li class="font border">정신나갈거같에</li>
-        <li class="font border">정신나갈거같에</li>
-        <li class="font border">정신나갈거같에</li>
-        <li class="font border">정신나갈거같에</li>
-        <li class="font border">정신나갈거같에</li>
-        <li class="font border">정신나갈거같에</li>
-        <li class="font border">정신나갈거같에</li>
-        <li class="font border">정신나갈거같에</li>
-        <li class="font border">정신나갈거같에</li>
-        <li class="font border">정신나갈거같에</li>
-        <li class="font border">정신나갈거같에</li>
-        <li class="font border">정신나갈거같에</li>
-        <li class="font border">정신나갈거같에</li>
-        <li class="font border">정신나갈거같에</li>
-        <li class="font border">정신나갈거같에</li>
-        <li class="font border">정신나갈거같에</li>
-        <li class="font border">정신나갈거같에</li>
-        <li class="font border">정신나갈거같에</li>
+        <li class="font border">~~~!!~~정신나갈거같에~~~!!~~</li>
+        <li class="font border">~~~!!~~정신나갈거같에~~~!!~~</li>
+        <li class="font border">~~~!!~~정신나갈거같에~~~!!~~</li>
+        <li class="font border">~~~!!~~정신나갈거같에~~~!!~~</li>
+        <li class="font border">~~~!!~~정신나갈거같에~~~!!~~</li>
+        <li class="font border">~~~!!~~정신나갈거같에~~~!!~~</li>
+        <li class="font border">~~~!!~~정신나갈거같에~~~!!~~</li>
+        <li class="font border">~~~!!~~정신나갈거같에~~~!!~~</li>
+        <li class="font border">~~~!!~~정신나갈거같에~~~!!~~</li>
+        <li class="font border">~~~!!~~정신나갈거같에~~~!!~~</li>
+        <li class="font border">~~~!!~~정신나갈거같에~~~!!~~</li>
+        <li class="font border">~~~!!~~정신나갈거같에~~~!!~~</li>
+        <li class="font border">~~~!!~~정신나갈거같에~~~!!~~</li>
+        <li class="font border">~~~!!~~정신나갈거같에~~~!!~~</li>
+        <li class="font border">~~~!!~~정신나갈거같에~~~!!~~</li>
+        <li class="font border">~~~!!~~정신나갈거같에~~~!!~~</li>
+        <li class="font border">~~~!!~~정신나갈거같에~~~!!~~</li>
+        <li class="font border">~~~!!~~정신나갈거같에~~~!!~~</li>
+        <li class="font border">~~~!!~~정신나갈거같에~~~!!~~</li>
+        <li class="font border">~~~!!~~정신나갈거같에~~~!!~~</li>
+        <li class="font border">~~~!!~~정신나갈거같에~~~!!~~</li>
+        <li class="font border">~~~!!~~정신나갈거같에~~~!!~~</li>
+        <li class="font border">~~~!!~~정신나갈거같에~~~!!~~</li>
+        <li class="font border">~~~!!~~정신나갈거같에~~~!!~~</li>
+        <li class="font border">~~~!!~~정신나갈거같에~~~!!~~</li>
+        <li class="font border">~~~!!~~정신나갈거같에~~~!!~~</li>
+        <li class="font border">~~~!!~~정신나갈거같에~~~!!~~</li>
+        <li class="font border">~~~!!~~정신나갈거같에~~~!!~~</li>
+        <li class="font border">~~~!!~~정신나갈거같에~~~!!~~</li>
+        <li class="font border">~~~!!~~정신나갈거같에~~~!!~~</li>
+        <li class="font border">~~~!!~~정신나갈거같에~~~!!~~</li>
     </ui>
 
     <!-- <script>
@@ -101,7 +113,9 @@
 
         #menu li {
             padding: 20px;
+            margin: 0 auto;
         }
+
 
         .bgColor {
             background-color: red;
@@ -131,6 +145,24 @@
             // elMenuLi[i].classList.remove('font', 'border')
             // 클래스 리스트를 삭제하는 방법
         }
+        for (var i = 0; i < elMenuLi.length; i++) {
+            if (i % 2 === 0) {
+                document.querySelectorAll("menu>li")
+                elMenuLi[i].style.width = "85%"
+            }
+        }
+        for (var i = 0; i < elMenuLi.length; i++) {
+            if (i % 2 === 1) {
+                document.querySelectorAll("menu>li")
+                elMenuLi[i].style.width = "50%"
+            }
+        }
+        for (var i = 0; i < elMenuLi.length; i++) {
+            if (i % 3 === 0 && i % 6 === 0) {
+                document.querySelectorAll("menu>li")
+                elMenuLi[i].style.width = "25%"
+            }
+        }
 
         var i = 0;
         setInterval(function () {
@@ -146,8 +178,10 @@
                 i = 0
             }
             //-----------------------------------------if 문을 활용한 무한반복--------------
-        }, 1)
+        }, 10)
         // ------------------------------------------복습--------------------------------
+
+
     </script>
 
 </body>
