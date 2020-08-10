@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열과for문</title>
+</head>
+
+<body>
+
+    <ui id="menu">
+        <li class="font border">정신나갈거같에</li>
+        <li class="font border">정신나갈거같에</li>
+        <li class="font border">정신나갈거같에</li>
+        <li class="font border">정신나갈거같에</li>
+        <li class="font border">정신나갈거같에</li>
+        <li class="font border">정신나갈거같에</li>
+        <li class="font border">정신나갈거같에</li>
+        <li class="font border">정신나갈거같에</li>
+        <li class="font border">정신나갈거같에</li>
+        <li class="font border">정신나갈거같에</li>
+        <li class="font border">정신나갈거같에</li>
+        <li class="font border">정신나갈거같에</li>
+        <li class="font border">정신나갈거같에</li>
+        <li class="font border">정신나갈거같에</li>
+        <li class="font border">정신나갈거같에</li>
+        <li class="font border">정신나갈거같에</li>
+        <li class="font border">정신나갈거같에</li>
+        <li class="font border">정신나갈거같에</li>
+        <li class="font border">정신나갈거같에</li>
+    </ui>
+
+    <!-- <script>
+        // var arrayColor = new Array('blue', 'yellow', 'white', 'red')
+        // 배열변수 array    new Array 또한 []
+        var arrayColor = ['blue', 'yellow', 'white', 'red']
+        var arrayBgColor = ['red', 'green', 'blue', 'orange']
+        // arrayColor.push('pink')
+        // 배열추가 메소드  마지막 배열에 push 밀어넣는다
+        // arrayColor.pop('pink')
+        // 배열삭제 메소드 마지막 배열에 pop 삭제
+        console.log(arrayColor)
+
+        var elMenuLi = document.querySelectorAll('#menu>li')
+        // elMenuLi[0].style.backgroundColor = "red"
+        // elMenuLi[1].style.backgroundColor = "green"
+        // elMenuLi[2].style.backgroundColor = "blue"
+        // elMenuLi[3].style.backgroundColor = "orange"
+        // elMenuLi[0].style.backgroundColor = arrayBgColor[0]
+        // elMenuLi[1].style.backgroundColor = arrayBgColor[1]
+        // elMenuLi[2].style.backgroundColor = arrayBgColor[2]
+        // elMenuLi[3].style.backgroundColor = arrayBgColor[3]
+
+        // elMenuLi[0].style.color = "blue"
+        // elMenuLi[1].style.color = "yellow"
+        // elMenuLi[2].style.color = "white"
+        // elMenuLi[3].style.color = "red"
+        // elMenuLi[0].style.color = arrayColor[0]
+        // elMenuLi[1].style.color = arrayColor[1]
+        // elMenuLi[2].style.color = arrayColor[2]
+        // elMenuLi[3].style.color = arrayColor[3]
+
+        // console.log(arrayColor.length)
+        // 배열변수.length 는 배열변수의 갯수가 몇개인지 나타내는 속성
+        // console.log(arrayBgColor.length)
+        // 배열변수.length 는 배열변수의 갯수가 몇개인지 나타내는 속성
+        // console.log(elMenuLi.length)
+        // 배열메뉴의  갯수까지도 알수있음
+
+        //for 문 수행 순서 (초기식(ex: var i>0 ), 논리식(i < j ), 증감식(i++ )){선언한 변수들을 활용한 문장식}
+
+        for (var i = 0; i < elMenuLi.length; i++) {
+            // for (var 초기선언 한번만실행(제어변수선언 일반적으로 i j k 로선언), 배열변수 선택 논리값(제어변수 < 배열변수.length), 제어변수 증감식(제어변수++)  )
+            elMenuLi[i].style.backgroundColor = arrayBgColor[i]
+            elMenuLi[i].style.color = arrayColor[i]
+            // 메뉴(기본적으로 배열변수를 담고있는 어미 메뉴) [제어변수] 스타일을 = 선언한 배열변수 [제어변수]
+        }
+
+
+
+        for (var i in arrayColor) {
+            elMenuLi[i].style.color = arrayColor[i]
+        }
+        for (var i in arrayBgColor) {
+            elMenuLi[i].style.backgroundColor = arrayBgColor[i]
+        }
+        // 위에 조건식과 동일한 식이다 하지만 in을 사용하여 증감식도 필요 없이 문법을 사용할수 있다
+
+
+
+
+    </script> -->
+
+
+    <style>
+        #menu {
+            list-style: none;
+            text-align: center;
+        }
+
+        #menu li {
+            padding: 20px;
+        }
+
+        .bgColor {
+            background-color: red;
+        }
+
+        .font {
+            font-size: 30px;
+            color: pink;
+        }
+
+        .border {
+            border-radius: 10px;
+            border: 1px solid #000;
+        }
+    </style>
+
+
+    <script>
+        var elMenuLi = document.querySelectorAll('#menu>li')
+        // 쿼리셀렉터 all css 문법과 똑같이 지목이가능하다
+        for (var i = 0; i < elMenuLi.length; i++) {
+            // elMenuLi[i].className += " bgColor";
+            // 복합대입 연산자로 클래스명에 접근하여 추가하는방법
+            // elMenuLi[i].classList.add('bgColor')
+            // 클래스 리스트를 추가하는방법
+            // elMenuLi는 여러개이기 classList.add()문법을 쓰기전에 인덱스 넘버가 있어야한다
+            // elMenuLi[i].classList.remove('font', 'border')
+            // 클래스 리스트를 삭제하는 방법
+        }
+
+        var i = 0;
+        setInterval(function () {
+            for (var j = 0; j < elMenuLi.length; j++) {
+                elMenuLi[j].classList.remove('bgColor');
+            }
+            //---------------------------------모든불을 다 끈다------------------------
+            elMenuLi[i].classList.add('bgColor');
+            ++i;
+            //---------------------------------------맨밑에있는 불을 먼저 킨다--------------
+            if (i >= elMenuLi.length) {
+                // i >= li의 갯수
+                i = 0
+            }
+            //-----------------------------------------if 문을 활용한 무한반복--------------
+        }, 10)
+        // ------------------------------------------복습--------------------------------
+    </script>
+
+</body>
+
+</html>
