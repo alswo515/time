@@ -5,6 +5,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>배열과for문</title>
+
+    <style>
+        #menu {
+            list-style: none;
+            text-align: center;
+        }
+
+        #menu li {
+            padding: 20px;
+            margin: 0 auto;
+        }
+
+
+        .bgColor {
+            background-color: red;
+        }
+
+        .font {
+            font-size: 30px;
+            color: pink;
+        }
+
+        .border {
+            border-radius: 10px;
+            border: 1px solid #000;
+        }
+    </style>
 </head>
 
 <body>
@@ -105,32 +132,6 @@
     </script> -->
 
 
-    <style>
-        #menu {
-            list-style: none;
-            text-align: center;
-        }
-
-        #menu li {
-            padding: 20px;
-            margin: 0 auto;
-        }
-
-
-        .bgColor {
-            background-color: red;
-        }
-
-        .font {
-            font-size: 30px;
-            color: pink;
-        }
-
-        .border {
-            border-radius: 10px;
-            border: 1px solid #000;
-        }
-    </style>
 
 
     <script>
@@ -148,7 +149,7 @@
         for (var i = 0; i < elMenuLi.length; i++) {
             if (i % 2 === 0) {
                 document.querySelectorAll("menu>li")
-                elMenuLi[i].style.width = "85%"
+                elMenuLi[i].style.width = "75%"
             }
         }
         for (var i = 0; i < elMenuLi.length; i++) {
@@ -171,6 +172,7 @@
             }
             //---------------------------------모든불을 다 끈다------------------------
             elMenuLi[i].classList.add('bgColor');
+
             ++i;
             //---------------------------------------맨밑에있는 불을 먼저 킨다--------------
             if (i >= elMenuLi.length) {
@@ -178,8 +180,42 @@
                 i = 0
             }
             //-----------------------------------------if 문을 활용한 무한반복--------------
-        }, 10)
+        }, 75)
         // ------------------------------------------복습--------------------------------
+
+        setInterval(function () {
+            for (var j = 0; j < elMenuLi.length; j++) {
+                elMenuLi[j].classList.remove('bgColor');
+            }
+            //---------------------------------모든불을 다 끈다------------------------
+            elMenuLi[i].classList.add('bgColor');
+
+            --i;
+            //---------------------------------------맨밑에있는 불을 먼저 킨다--------------
+            if (i >= elMenuLi.length) {
+                // i >= li의 갯수
+                i = 0
+            }
+            //-----------------------------------------if 문을 활용한 무한반복--------------
+        }, 100)
+
+        setInterval(function () {
+            for (var j = 0; j < elMenuLi.length; j++) {
+                elMenuLi[j].classList.remove('bgColor');
+            }
+            //---------------------------------모든불을 다 끈다------------------------
+            elMenuLi[i].classList.add('bgColor');
+
+            ++i;
+            //---------------------------------------맨밑에있는 불을 먼저 킨다--------------
+            if (i >= elMenuLi.length) {
+                // i >= li의 갯수
+                i = 0
+            }
+            //-----------------------------------------if 문을 활용한 무한반복--------------
+        }, 200)
+
+
 
 
     </script>

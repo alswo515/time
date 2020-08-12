@@ -1,0 +1,46 @@
+s
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열과 for문</title>
+</head>
+
+<body>
+
+    <ul id="menu">
+        <li>메뉴1</li>
+        <li>메뉴2</li>
+        <li>메뉴3</li>
+        <li>메뉴4</li>
+        <li>메뉴4</li>
+    </ul>
+
+    <script>
+        var arrayColor = ['blue', 'yellow', 'white', 'red'];
+        var arrayBgColor = ['red', 'green', 'blue', 'orange'];
+        var elMenuLi = document.querySelectorAll('#menu>li')
+        var i = ''
+        var k = 0
+
+        function releay() {
+            for (var i; i < elMenuLi.length; i++) {
+                elMenuLi[i].style.backgroundColor = elMenuLi[i]
+            }
+
+            elMenuLi[k].style.backgroundColor = arrayBgColor[k]
+            ++k
+
+            if (k >= elMenuLi.length) {
+                k = 0
+            }
+        }
+        releay()
+        setInterval(releay, 1000)
+
+
+    </script>
+
+</body>
